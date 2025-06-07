@@ -4,13 +4,14 @@ import errorHandler from './services/errorHandler.js';
 
 const app = express();
 
+// Middleware
 app.use(express.json());
 
-// Anslut routes
-app.use('/api/blocks', blockRoutes);
+// routes
+app.use('/blocks', blockRoutes); 
 
 // Central felhantering
-app.use(errorHandler);  // Denna middleware fångar alla fel
+app.use(errorHandler);
 
 const PORT = 3000;
 app.listen(PORT, () => {

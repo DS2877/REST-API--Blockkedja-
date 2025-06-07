@@ -4,7 +4,11 @@ import Block from './block.js';
 class Blockchain {
   constructor() {
     this.chain = [];
-    this.loadBlockchain();
+    this.difficulty = 3;
+  }
+
+  async init() {
+    await this.loadBlockchain();
   }
 
   async loadBlockchain() {
@@ -12,7 +16,7 @@ class Blockchain {
       const data = await fs.readFile('./data/blockchain.json', 'utf-8');
       this.chain = JSON.parse(data);
     } catch (err) {
-      this.chain = []; // Om filen inte finns, skapa en tom kedja
+      this.chain = []; // skapa en tom kedja
     }
   }
 
@@ -28,10 +32,15 @@ class Blockchain {
     return this.chain.find(block => block.id === id);
   }
 
-  addBlock(data) {
-    const newBlock = new Block(data);
+  async addBlock(data) {
+    const previousBlock = this.chain[this.chain.length - 1];
+    const previousHash = previousBlock ? previousBlock.hash : '0';
+
+    const newBlock = new Block(data, previousHash);
+    newBlock.mineBlock(this.difficulty);
+
     this.chain.push(newBlock);
-    this.saveBlockchain(); // Spara blockchain till filen
+    await this.saveBlockchain();
     return newBlock;
   }
 }

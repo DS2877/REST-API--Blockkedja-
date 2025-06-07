@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1749283723402,
+    "data": {
+      "message": "Mitt första block"
+    },
+    "timestamp": "2025-06-07T08:08:43.402Z",
+    "previousHash": "0",
+    "nonce": 555,
+    "hash": "0003c83fea71a9c948e9770bc1f222118e0f55c8b8300d7b091ade4f0900b3dd"
+  }
+]

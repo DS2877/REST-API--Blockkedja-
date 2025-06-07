@@ -18,12 +18,13 @@ export const getBlockById = (req, res) => {
 };
 
 // Skapa ett nytt block
-export const createBlock = (req, res) => {
+export const createBlock = async (req, res) => {
   const blockData = req.body;
   try {
-    const newBlock = blockchain.addBlock(blockData);
+    const newBlock = await blockchain.addBlock(blockData);
     res.status(201).json(newBlock);
   } catch (error) {
+    console.error('Fel vid skapande av block:', error);
     res.status(400).json({ message: 'Invalid block data' });
   }
 };
