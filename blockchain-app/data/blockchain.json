@@ -8,5 +8,15 @@
     "previousHash": "0",
     "nonce": 555,
     "hash": "0003c83fea71a9c948e9770bc1f222118e0f55c8b8300d7b091ade4f0900b3dd"
+  },
+  {
+    "id": 1749381522190,
+    "data": {
+      "message": "Mitt andra block"
+    },
+    "timestamp": "2025-06-08T11:18:42.190Z",
+    "previousHash": "0003c83fea71a9c948e9770bc1f222118e0f55c8b8300d7b091ade4f0900b3dd",
+    "nonce": 5405,
+    "hash": "000402441536fc019b70b4c9c8a5a92ea759b639a16cd6bf2ceb8f07b186040c"
   }
 ]
